@@ -1,23 +1,23 @@
 ﻿partial class Program
 {
-    static int[] ReadNumbers(in uint NUMAR_ELEMENTE)
+    static int[] ReadNumbers(uint numarElemente)
     {
-        var numere= new int[NUMAR_ELEMENTE];
-        Console.WriteLine($"Introduceti {NUMAR_ELEMENTE} numere separate de un spatiu");
+        var numere= new int[numarElemente];
+        Console.WriteLine($"Introduceti {numarElemente} numere separate de un spatiu");
         var numereRaw = Console.ReadLine()?.Split(" ");
-        if (numereRaw?.Length == NUMAR_ELEMENTE)
-            for (int i = 0; i < NUMAR_ELEMENTE; i++)
+        if (numereRaw?.Length == numarElemente)
+            for (int i = 0; i < numarElemente; i++)
             {
                 if (!int.TryParse(numereRaw[i], out numere[i]))
                 {
                     Console.WriteLine("Nu ati introdus datele in format valid, mai incercati");
-                    return ReadNumbers(NUMAR_ELEMENTE);
+                    return ReadNumbers(numarElemente);
                 }
             }
         else
         {
             Console.WriteLine("Nu ati introdus datele in format valid, mai incercati");
-            return ReadNumbers(NUMAR_ELEMENTE);
+            return ReadNumbers(numarElemente);
         }
         return numere;
     }
